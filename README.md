@@ -28,11 +28,11 @@ The workflow leverages **TF-IDF vectorization**, **dimensionality reduction (PCA
 ## 🚀 Project Structure
 ```
 news-clustering/
-├── sample/
+├── data/
 │   └── news_data_sample.tsv          # Sample news dataset
-├── source/
+├── src/
 │   ├── __init__.py
-│   └── main.py                       # Main project script
+│   └── app.py                       # Main project script
 ├── tests/
 │   └── test_model.py                 # Basic functionality test
 ├── .gitignore
@@ -90,7 +90,7 @@ pip install -r requirements.txt
 
 ### 2. Run the main script
 ```bash
-python source/main.py
+python src/app.py
 ```
 
 ### 3. Run the tests
@@ -104,11 +104,6 @@ pytest
 - Integrate **word embeddings** (Word2Vec, BERT) for deeper semantic understanding.
 - Add **topic labeling** using NLP techniques.
 - Develop an **interactive dashboard** using Streamlit or Dash for real-time exploration.
-
----
-
-## ✨ Author
-Developed as part of a machine learning portfolio to demonstrate unsupervised NLP capabilities and model evaluation practices.
 
 ---
 
