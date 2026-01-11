@@ -1,106 +1,116 @@
-# [Project Name]
+# 📰 News Clustering using TF-IDF, PCA, and Unsupervised Learning
 
-<!-- [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) -->
-<!-- [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://example.com) -->
+## 📘 Project Overview
+This project demonstrates **unsupervised text clustering** applied to news articles using modern **Natural Language Processing (NLP)** and **Machine Learning** techniques. The objective is to automatically group related news stories based on their textual similarity, without prior labeling.
 
-> A brief, one-sentence description of what the project does and the problem it solves.
+The workflow leverages **TF-IDF vectorization**, **dimensionality reduction (PCA)**, and two clustering algorithms — **K-Means** and **Agglomerative Clustering** — to identify inherent patterns in unstructured textual data.
 
-## 📋 Table of Contents
+---
 
-- [About](#about)
-- [Features](#features)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Built With](#built-with)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+## 🧠 Key Features
+- **Text preprocessing** including tokenization, lemmatization, and stopword removal.
+- **TF-IDF representation** to capture term relevance and frequency relationships.
+- **Dimensionality reduction** using PCA to visualize and improve clustering efficiency.
+- **Comparison of clustering algorithms**: K-Means vs Agglomerative Clustering.
+- **Silhouette Score evaluation** for objective performance comparison.
+- **Data visualization** with Matplotlib and Seaborn.
 
-## 🧐 About <a name = "about"></a>
+---
 
-Write a detailed description of the project here.
+## ⚙️ Technologies Used
+- **Python 3.10+**
+- **Pandas**, **NumPy**, **Matplotlib**, **Seaborn**
+- **scikit-learn** for vectorization, PCA, and clustering
+- **NLTK** for natural language preprocessing
 
-- What is the purpose of this project?
-- Who is the target audience?
-- Why did you build it?
+---
 
-## ✨ Features <a name = "features"></a>
-
-- Feature 1: Description
-- Feature 2: Description
-- Feature 3: Description
-
-## 🚀 Getting Started <a name = "getting-started"></a>
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
-### Prerequisites
-
-List the software and tools you need to install before running the project.
-
-- Requirement 1 (e.g., Node.js v14+, Python 3.8+)
-- Requirement 2 (e.g., Docker)
-
-### Installation
-
-A step-by-step series of examples that tell you how to get a development environment running.
-
-1.  **Clone the repository**
-
-    ```bash
-    git clone https://github.com/yourusername/your-repo-name.git
-    cd your-repo-name
-    ```
-
-2.  **Install dependencies**
-
-    ```bash
-    # Example for Node.js
-    npm install
-
-    # Example for Python
-    pip install -r requirements.txt
-    ```
-
-3.  **Configure environment**
-
-    Rename `.env.example` to `.env` and update the variables.
-
-    ```bash
-    cp .env.example .env
-    ```
-
-## 🎈 Usage <a name = "usage"></a>
-
-Instructions on how to run the application.
-
-```bash
-npm start
-# or
-python main.py
+## 🚀 Project Structure
+```
+news-clustering/
+├── sample/
+│   └── news_data_sample.tsv          # Sample news dataset
+├── source/
+│   ├── __init__.py
+│   └── main.py                       # Main project script
+├── tests/
+│   └── test_model.py                 # Basic functionality test
+├── .gitignore
+├── Makefile
+├── README.md
+└── requirements.txt
 ```
 
-## 💻 Built With <a name = "built-with"></a>
+---
 
-- Framework Name - The web framework used
-- Database Name - Database management
-- Tool Name - Other tools
+## 🧩 Workflow Summary
 
-## 🤝 Contributing <a name = "contributing"></a>
+### 1. Data Loading
+The project loads a sample dataset of news headlines and short articles from a TSV file. You can replace it with your own dataset.
 
-Contributions are always welcome! Please follow these steps:
+### 2. Text Preprocessing
+Each text is converted to lowercase, cleaned of non-alphabetic characters, tokenized, lemmatized, and stripped of stopwords. This ensures the model focuses on semantic meaning rather than noise.
 
-1.  Fork the Project
-2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4.  Push to the Branch (`git push origin feature/AmazingFeature`)
-5.  Open a Pull Request
+### 3. Feature Extraction with TF-IDF
+The cleaned text corpus is vectorized using TF-IDF, representing each document as a weighted vector of word importance.
 
-## 📝 License <a name = "license"></a>
+### 4. Dimensionality Reduction
+Principal Component Analysis (PCA) is applied to project high-dimensional TF-IDF features into 2D space for visualization and computational efficiency.
 
-Distributed under the MIT License. See `LICENSE` for more information.
+### 5. Clustering
+Two algorithms are implemented and compared:
+- **K-Means Clustering**: Partitions data into K clusters by minimizing intra-cluster variance.
+- **Agglomerative Clustering**: A hierarchical approach that merges points iteratively based on similarity.
 
-## 👤 Contact <a name = "contact"></a>
+### 6. Evaluation
+The **Silhouette Score** quantifies how well each point fits within its assigned cluster, providing an objective metric for model comparison.
 
-- **Your Name** - Website/Twitter - email@example.com
-- **Project Link**: https://github.com/yourusername/your-repo-name
+### 7. Visualization
+Results are visualized using scatter plots that highlight how each clustering algorithm groups the data.
+
+---
+
+## 📊 Example Results
+After running the script, the console prints silhouette scores for both clustering methods and displays a visual plot comparing them.
+
+Example output:
+```
+Silhouette Score (K-Means): 0.523
+Silhouette Score (Agglomerative): 0.471
+```
+
+---
+
+## 🧪 How to Run
+
+### 1. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Run the main script
+```bash
+python source/main.py
+```
+
+### 3. Run the tests
+```bash
+pytest
+```
+
+---
+
+## 🧭 Future Improvements
+- Integrate **word embeddings** (Word2Vec, BERT) for deeper semantic understanding.
+- Add **topic labeling** using NLP techniques.
+- Develop an **interactive dashboard** using Streamlit or Dash for real-time exploration.
+
+---
+
+## ✨ Author
+Developed as part of a machine learning portfolio to demonstrate unsupervised NLP capabilities and model evaluation practices.
+
+---
+
+## 🏷️ License
+This project is released under the MIT License.
