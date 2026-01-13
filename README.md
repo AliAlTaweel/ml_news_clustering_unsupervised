@@ -118,6 +118,11 @@ python src/app.py
 ```bash
 pytest
 ```
+### 4. Run the server
+
+```bash
+uvicorn src.app:app --reload    
+```
 
 ---
 

@@ -9,3 +9,5 @@ matplotlib
 uvicorn
 scipy
 notebook
+pytest
+httpx
